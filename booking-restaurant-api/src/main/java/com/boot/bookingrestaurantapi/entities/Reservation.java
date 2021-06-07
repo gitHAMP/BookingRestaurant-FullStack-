@@ -1,4 +1,4 @@
-package om.boot.bookingrestaurantapi.entities;
+package com.boot.bookingrestaurantapi.entities;
 
 import java.util.Date;
 

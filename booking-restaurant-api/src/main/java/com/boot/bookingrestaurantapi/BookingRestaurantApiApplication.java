@@ -1,4 +1,4 @@
-package om.boot.bookingrestaurantapi;
+package com.boot.bookingrestaurantapi;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

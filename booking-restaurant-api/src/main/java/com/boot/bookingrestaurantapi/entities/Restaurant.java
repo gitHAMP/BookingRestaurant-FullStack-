@@ -1,4 +1,4 @@
-package om.boot.bookingrestaurantapi.entities;
+package com.boot.bookingrestaurantapi.entities;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;

@@ -1,8 +1,8 @@
-package om.boot.bookingrestaurantapi.repositories;
+package com.boot.bookingrestaurantapi.repositories;
 
 import java.util.Optional;
 
-import om.boot.bookingrestaurantapi.entities.Turn;
+import com.boot.bookingrestaurantapi.entities.Turn;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
