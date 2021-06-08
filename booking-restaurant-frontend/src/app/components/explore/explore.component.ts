@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { LightRestaurant } from 'src/app/models/restaurant-ligth';
+import { BookingService } from '../../services/booking.service';
 
 @Component({
   selector: 'app-explore',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ExploreComponent implements OnInit {
 
-  constructor() { }
+  public restaurants: LightRestaurant[] = [];
+
+  constructor(private bookingService: BookingService) { }
 
   ngOnInit(): void {
+    this.bookingService.getAllRestaurants().subscribe((result: any) => {
+      this.restaurants = result.data;
+    })
   }
 
 }
