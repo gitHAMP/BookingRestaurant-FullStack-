@@ -20,7 +20,8 @@ import { MaterialModule } from '../material/material.module';
     MaterialModule
   ],
   exports: [
-    MaterialModule
+    MaterialModule,
+    HeaderComponent
   ]
 })
 export class ComponentModule { }
