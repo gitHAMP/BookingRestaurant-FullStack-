@@ -33,6 +33,16 @@ public class Reservation {
     @Column(name = "DATE")
     private Date date;
 
+    /*@Column(name = "EMAIL")
+    private String email;
+
+    @Column(name = "NAME")
+    private String name;*/
+
+    @Column(name = "PAYMENT")
+    private boolean payment;
+
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "RESTAURANT_ID", nullable = false)
     private Restaurant restaurant;
@@ -85,4 +95,27 @@ public class Reservation {
         this.turn = turn;
     }
 
+    /*public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }*/
+
+    public boolean isPayment() {
+        return payment;
+    }
+
+    public void setPayment(boolean payment) {
+        this.payment = payment;
+    }
 }

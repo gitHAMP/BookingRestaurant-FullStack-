@@ -2,23 +2,25 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Booking } from '../models/booking.model';
 
-const API = 'http://localhost:8089/booking-restaurant/v1/';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class BookingService {
 
+  private API = 'http://localhost:8089/booking-restaurant/v1/';
+  
   constructor(private http: HttpClient) { }
 
   getAllRestaurants() {
-    return this.http.get(API + 'restaurants')
+    return this.http.get(this.API + 'restaurants')
   }
   getRestaurant(id: number) {
-    return this.http.get(API + 'restaurant' + '/' + id)
+    return this.http.get(this.API + 'restaurant' + '/' + id)
   }
   createReservation(booking: Booking) {
-    return this.http.post(API + 'reservation', booking)
+    return this.http.post(this.API + 'reservation', booking)
   }
   cancelReservation(reservationCode: string) {
     const options = {
@@ -26,7 +28,7 @@ export class BookingService {
         'Content-Type': 'application/json'
       })
     }
-    return this.http.delete(API + '?locator=' + reservationCode, options)
+    return this.http.delete(this.API + '?locator=' + reservationCode, options)
   }
 
 }

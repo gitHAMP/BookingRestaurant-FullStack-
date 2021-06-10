@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Booking } from 'src/app/models/booking.model';
 import { Restaurant } from 'src/app/models/restaurant.model';
+import { PaymentService } from 'src/app/service/payment.service';
 import { BookingService } from '../../service/booking.service';
 import { InfoDialogComponent } from '../info-dialog/info-dialog.component';
 
@@ -22,7 +23,9 @@ export class BookingComponent implements OnInit {
   constructor(public dialog: MatDialog,
     private fb: FormBuilder,
     private bookingService: BookingService,
-    private route: ActivatedRoute) { }
+     private paymentService: PaymentService,
+    private route: ActivatedRoute,
+  private router: Router) { }
 
   ngOnInit(): void {
     this.idRestaurant = Number(this.route.snapshot.paramMap.get('id'))
@@ -60,6 +63,14 @@ export class BookingComponent implements OnInit {
       const title = "CÓDIGO DE RESERVA: " + result.data
       const info = "Necesitarás el código para poder acceder al restaurante o cancelar la reserva. Por favor guardalo en un lugar seguro"
       this.openDialog(title, info)
+    })
+  }
+
+  payBooking(){
+    this.setBooking()
+    this.bookingService.createReservation(this.booking).subscribe((result: any)=> {
+      this.paymentService.setBooked({ ...this.booking, locator: result.data})
+      this.router.navigate(['payment'])
     })
   }
 

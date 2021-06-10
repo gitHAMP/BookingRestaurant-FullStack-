@@ -24,6 +24,8 @@ public class ReservationRest {
     @JsonProperty("turnId")
     private Long turnId;
 
+
+
     public String getLocator() {
         return locator;
     }

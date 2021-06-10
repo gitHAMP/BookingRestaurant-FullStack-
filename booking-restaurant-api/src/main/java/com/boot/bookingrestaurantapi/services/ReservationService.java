@@ -9,5 +9,6 @@ public interface ReservationService {
     ReservationRest getReservation(Long reservationId) throws BookingException;
 
     String createReservation(CreateReservationRest CreateReservationRest) throws BookingException;
+    void updateReservation(boolean payment, String locator) throws  BookingException;
 
 }

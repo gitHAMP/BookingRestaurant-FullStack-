@@ -20,6 +20,8 @@ public class CreateReservationRest {
     @JsonProperty("restaurantId")
     private Long restaurantId;
 
+
+
     public Date getDate() {
         return date;
     }

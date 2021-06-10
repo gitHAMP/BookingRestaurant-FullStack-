@@ -70,6 +70,19 @@ public class ReservationServiceImpl implements ReservationService {
         return locator;
     }
 
+    @Override
+    public void updateReservation(boolean payment, String locator) throws BookingException {
+        Reservation reservation=reservationRepository.findByLocator(locator)
+                .orElseThrow(()->new NotFountException("CODE_LOCATOR_NOT_FOUND", "LOCATOR_NOT_FOUND"));
+        reservation.setPayment(true);
+        try{
+            reservationRepository.save(reservation);
+        }catch (Exception e){
+            LOGGER.error("INTERNAL_SERVER_ERROR");
+            throw new InternalServerErrorException("INTERNAL_SERVER_ERROR", "INTERNAL_SERVER_ERROR");
+        }
+    }
+
     private String generateLocator(final Restaurant restaurantId, final CreateReservationRest createReservationRest)
             throws BookingException {
         return restaurantId.getName() + createReservationRest.getTurnId();

@@ -8,7 +8,8 @@ import { BookingComponent } from './booking/booking.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InfoDialogComponent } from './info-dialog/info-dialog.component';
 import { CancelBookingComponent } from './cancel-booking/cancel-booking.component';
-
+import { PaymentComponent } from './payment/payment.component';
+import { NgxStripeModule} from 'ngx-stripe'
 @NgModule({
   declarations: [
     LoginComponent,
@@ -16,13 +17,15 @@ import { CancelBookingComponent } from './cancel-booking/cancel-booking.componen
     NavbarComponent,
     BookingComponent,
     InfoDialogComponent,
-    CancelBookingComponent
+    CancelBookingComponent,
+    PaymentComponent
   ],
   imports: [
     CommonModule,
     MaterialModule,
     ReactiveFormsModule,
     FormsModule,
+    NgxStripeModule.forRoot('pk_test_51Ix2oaAfbfzmGRwRHQnJLshYLzZo2RcLiM84U4g823jlPeOJ1fvrt9T0winWXnbX68lntR7WYFeHg9Mb5YNB5fim004d1uxDUx')
   ],
   exports: [
     LoginComponent,

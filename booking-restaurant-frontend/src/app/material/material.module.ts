@@ -9,6 +9,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
+import {MatStepperModule} from '@angular/material/stepper';
 import { MatCardModule } from '@angular/material/card';
 import { AppRoutingModule } from '../app-routing.module';
 @NgModule({
@@ -25,7 +26,9 @@ import { AppRoutingModule } from '../app-routing.module';
     MatNativeDateModule,
     MatSelectModule,
     MatDialogModule,
+    MatStepperModule,
     AppRoutingModule,
+    
   ],
   exports: [
     MatInputModule,
@@ -38,6 +41,7 @@ import { AppRoutingModule } from '../app-routing.module';
     MatNativeDateModule,
     MatSelectModule,
     MatDialogModule,
+    MatStepperModule,
     AppRoutingModule,
   ]
 })
